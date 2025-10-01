@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Gallery - Audu Matthew Ogiede</title>
+    <meta name="description" content="Explore the visual journey of Audu Matthew Ogiede through professional photos, achievements, and memorable moments.">
+    <meta name="keywords" content="Audu Matthew Ogiede gallery, photos, achievements, real estate, business leadership">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+         :root {
+            --primary-color: #078430;
+            --primary-hover: #056b27;
+            --secondary-color: #7209b7;
+            --accent-color: #078430;
+            --dark-color: #1a1a2e;
+            --light-color: #333435;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        .gallery-section {
+            background: linear-gradient(135deg, #303031 0%, #29292a 100%);
+            padding: 60px 0;
+        }
+        
+        .logo img {
+            max-height: 150px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+        
+        .header {
+            padding: 10px 0;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navmenu ul {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        /* Gallery Styles */
+        
+        .gallery-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .gallery-filters {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .gallery-filter-btn {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .gallery-filter-btn:hover,
+        .gallery-filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(7, 132, 48, 0.3);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            aspect-ratio: 4/3;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 2rem 1.5rem 1.5rem;
+            color: white;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-category {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .design {
+            color: black
+        }
+        /* Lightbox Styles */
+        
+        .gallery-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .lightbox-container {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: scale(0.8);
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-lightbox.active .lightbox-container {
+            transform: scale(1);
+        }
+        
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 8px solid white;
+        }
+        
+        .lightbox-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .lightbox-content h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .lightbox-content p {
+            color: #6c757d;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+        
+        .close-lightbox {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            z-index: 10;
+        }
+        
+        .close-lightbox:hover {
+            transform: rotate(90deg);
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            transform: translateY(-50%);
+        }
+        
+        .lightbox-nav-btn {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+        
+        .lightbox-nav-btn:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .lightbox-decoration {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23078430" opacity="0.2" d="M28.1,36.9c4.6-2.2,9.8-0.7,12.9,3.5c3.8,5.2,2.6,12.5-2.6,16.3c-5.2,3.8-12.5,2.6-16.3-2.6C19,50,20.2,42.7,25.4,38.9L28.1,36.9z M71.9,36.9c4.6,2.2,7.1,7.4,5,12c-2.2,4.6-7.4,7.1-12,5c-4.6-2.2-7.1-7.4-5-12C62,39.3,67.2,36.8,71.9,36.9z M50,10c22.1,0,40,17.9,40,40s-17.9,40-40,40s-40-17.9-40-40S27.9,10,50,10z"/></svg>');
+            background-size: contain;
+            z-index: -1;
+        }
+        
+        .lightbox-decoration-1 {
+            top: -40px;
+            left: -40px;
+            transform: rotate(-15deg);
+        }
+        
+        .lightbox-decoration-2 {
+            bottom: -40px;
+            right: -40px;
+            transform: rotate(15deg);
+        }
+        
+        .lightbox-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(7, 132, 48, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
+        }
+        /* Gallery Hero Section */
+        
+        .gallery-hero {
+            background: linear-gradient(135deg, rgba(7, 132, 48, 0.1) 0%, rgba(7, 132, 48, 0.05) 100%);
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .gallery-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .gallery-hero p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Animation Classes */
+        
+        .gallery-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            .gallery-hero h1 {
+                font-size: 2.5rem;
+            }
+            .lightbox-nav {
+                padding: 0 1rem;
+            }
+            .lightbox-nav-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-hero h1 {
+                font-size: 2rem;
+            }
+            .gallery-hero p {
+                font-size: 1rem;
+            }
+            .gallery-filter-btn {
+                padding: 0.4rem 1rem;
+                margin: 0 0.25rem 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="gallery-page">
+
+    <!-- Header -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="logo d-flex align-items-center">
+                <img src="assets/img/new.png" alt="Audu Matthew Ogiede" class="logos">
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="main">
+
+        <!-- Gallery Hero Section -->
+        <section class="gallery-hero" data-aos="fade">
+            <div class="container">
+                <div class="row d-flex justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h1>Visual Journey</h1>
+                        <p>Explore the remarkable moments, achievements, and milestones through captivating visuals that tell the story of Audu Matthew Ogiede's inspiring journey.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery section">
+            <div class="container" data-aos="fade-up">
+                <div class="gallery-filters">
+                    <button class="gallery-filter-btn active" data-filter="all">All Photos</button>
+                    <button class="gallery-filter-btn" data-filter="professional">Professional</button>
+                    <button class="gallery-filter-btn" data-filter="achievements">Achievements</button>
+                    <button class="gallery-filter-btn" data-filter="personal">Personal</button>
+                    <button class="gallery-filter-btn" data-filter="events">Events</button>
+                </div>
+
+                <div class="gallery-grid">
+                    <!-- Professional Photos -->
+                    <div class="gallery-item visible" data-category="professional">
+                        <img src="assets/img/md.JPG" alt="Professional Headshot" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Executive Portrait</div>
+                            <div class="gallery-category">Professional</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item visible" data-category="professional">
+                        <img src="assets/img/lead.jpeg" alt="Business Leadership" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Business Leadership</div>
+                            <div class="gallery-category">Professional</div>
+                        </div>
+                    </div>
+
+                    <!-- Achievement Photos -->
+                    <div class="gallery-item visible" data-category="achievements">
+                        <img src="assets/img/car.PNG" alt="Award Car" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Sales Achievement Award</div>
+                            <div class="gallery-category">Achievements</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item visible" data-category="achievements">
+                        <img src="assets/img/sou.jpeg" alt="International Award" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">International Recognition</div>
+                            <div class="gallery-category">Achievements</div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Photos -->
+                    <div class="gallery-item visible" data-category="personal">
+                        <img src="assets/img/first.JPG" alt="Personal Moment" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Personal Moment</div>
+                            <div class="gallery-category">Personal</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item visible" data-category="personal">
+                        <img src="assets/img/marry3.jpeg" alt="Family Life" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Family Life</div>
+                            <div class="gallery-category">Personal</div>
+                        </div>
+                    </div>
+
+                    <!-- Event Photos -->
+                    <div class="gallery-item visible" data-category="events">
+                        <img src="assets/img/work.jpeg" alt="Business Event" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Business Conference</div>
+                            <div class="gallery-category">Events</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item visible" data-category="events">
+                        <img src="assets/img/sales.jpeg" alt="Real Estate Event" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Real Estate Summit</div>
+                            <div class="gallery-category">Events</div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Photos -->
+                    <div class="gallery-item visible" data-category="professional">
+                        <img src="assets/img/dom.JPG" alt="Entrepreneurship" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Entrepreneurial Journey</div>
+                            <div class="gallery-category">Professional</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item visible" data-category="achievements">
+                        <img src="assets/img/uni.jpeg" alt="Education Achievement" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Academic Excellence</div>
+                            <div class="gallery-category">Achievements</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item visible" data-category="personal">
+                        <img src="assets/img/birth.jpeg" alt="Heritage" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Cultural Heritage</div>
+                            <div class="gallery-category">Personal</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item visible" data-category="events">
+                        <img src="assets/img/relo.jpeg" alt="Community Event" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Community Engagement</div>
+                            <div class="gallery-category">Events</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div class="gallery-lightbox" id="gallery-lightbox">
+            <div class="lightbox-container">
+                <button class="close-lightbox" id="close-lightbox">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+                <div class="lightbox-glow"></div>
+                <div class="lightbox-decoration lightbox-decoration-1"></div>
+                <div class="lightbox-decoration lightbox-decoration-2"></div>
+                <img src="" alt="" class="lightbox-image" id="lightbox-image">
+                <div class="lightbox-content">
+                    <h3 id="lightbox-title"></h3>
+                    <p id="lightbox-description"></p>
+                </div>
+                <div class="lightbox-nav">
+                    <button class="lightbox-nav-btn" id="prev-btn">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button class="lightbox-nav-btn" id="next-btn">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer dark-background">
+        <div class="container">
+            <h3 class="sitename">AUDU MATTHEW OGIEDE</h3>
+            <p>From Humble Beginnings to Real Estate Powerhouse</p>
+            <div class="social-links d-flex justify-content-center">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-skype"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <span class="design">Designed by <a href="https://technest-gules.vercel.app/" style="color: green;">TechNest</a> Technologies</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <audio id="jazz" autoplay loop style="display:none;">
+        <source src="assets/audio/kenny.mp3" type="audio/mpeg">
+      </audio>
+
+    <script>
+        const jazz = document.getElementById("jazz");
+
+        window.addEventListener("load", () => {
+            jazz.volume = 0.3; // soft background level
+            jazz.play().catch(() => {
+                console.log("Autoplay blocked by browser 😅");
+            });
+        });
+    </script>
+
+    <!-- Custom JS for Gallery -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gallery Elements
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+            const lightbox = document.getElementById('gallery-lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            const lightboxDescription = document.getElementById('lightbox-description');
+            const closeLightbox = document.getElementById('close-lightbox');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            // Gallery Data
+            const galleryData = [{
+                image: 'assets/img/md.JPG',
+                title: 'Executive Portrait',
+                description: 'Professional headshot showcasing leadership presence and business acumen.',
+                category: 'professional'
+            }, {
+                image: 'assets/img/lead.jpeg',
+                title: 'Business Leadership',
+                description: 'Demonstrating strategic vision and team leadership in the corporate environment.',
+                category: 'professional'
+            }, {
+                image: 'assets/img/car.PNG',
+                title: 'Sales Achievement Award',
+                description: 'Receiving the brand new Hyundai Santefe for outstanding sales performance at PWAN Champion.',
+                category: 'achievements'
+            }, {
+                image: 'assets/img/sou.jpeg',
+                title: 'International Recognition',
+                description: 'Awarded at the Under 40\'s CEO\'s Conference in Johannesburg, South Africa for excellence in Real Estate.',
+                category: 'achievements'
+            }, {
+                image: 'assets/img/first.JPG',
+                title: 'Personal Moment',
+                description: 'A candid moment reflecting the journey from humble beginnings to success.',
+                category: 'personal'
+            }, {
+                image: 'assets/img/marry3.jpeg',
+                title: 'Family Life',
+                description: 'Celebrating life\'s precious moments with loved ones and building a beautiful home.',
+                category: 'personal'
+            }, {
+                image: 'assets/img/work.jpeg',
+                title: 'Business Conference',
+                description: 'Engaging with industry leaders and sharing insights at a major business event.',
+                category: 'events'
+            }, {
+                image: 'assets/img/sales.jpeg',
+                title: 'Real Estate Summit',
+                description: 'Participating in high-level discussions about the future of real estate in Nigeria.',
+                category: 'events'
+            }, {
+                image: 'assets/img/dom.JPG',
+                title: 'Entrepreneurial Journey',
+                description: 'Building Damains Enterprises across multiple business sectors and industries.',
+                category: 'professional'
+            }, {
+                image: 'assets/img/uni.jpeg',
+                title: 'Academic Excellence',
+                description: 'Educational foundation at the University of Lagos, laying groundwork for future success.',
+                category: 'achievements'
+            }, {
+                image: 'assets/img/birth.jpeg',
+                title: 'Cultural Heritage',
+                description: 'Embracing diverse heritage from Edo and Imo States, shaping unique perspectives.',
+                category: 'personal'
+            }, {
+                image: 'assets/img/relo.jpeg',
+                title: 'Community Engagement',
+                description: 'Active participation in community development and social impact initiatives.',
+                category: 'events'
+            }];
+
+            let currentIndex = 0;
+
+            // Filter functionality
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Filter items
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.classList.add('visible');
+                            }, 50);
+                        } else {
+                            item.classList.remove('visible');
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Lightbox functionality
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    currentIndex = index;
+                    openLightbox(currentIndex);
+                });
+            });
+
+            function openLightbox(index) {
+                const data = galleryData[index];
+                lightboxImage.src = data.image;
+                lightboxTitle.textContent = data.title;
+                lightboxDescription.textContent = data.description;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightboxFunc() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            function navigateLightbox(direction) {
+                if (direction === 'next') {
+                    currentIndex = (currentIndex + 1) % galleryData.length;
+                } else {
+                    currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
+                }
+                openLightbox(currentIndex);
+            }
+
+            // Event listeners
+            closeLightbox.addEventListener('click', closeLightboxFunc);
+            prevBtn.addEventListener('click', () => navigateLightbox('prev'));
+            nextBtn.addEventListener('click', () => navigateLightbox('next'));
+
+            // Close lightbox when clicking outside
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightboxFunc();
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (lightbox.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        closeLightboxFunc();
+                    } else if (e.key === 'ArrowLeft') {
+                        navigateLightbox('prev');
+                    } else if (e.key === 'ArrowRight') {
+                        navigateLightbox('next');
+                    }
+                }
+            });
+
+            // Animate items on scroll
+            function animateOnScroll() {
+                galleryItems.forEach(item => {
+                    const itemTop = item.getBoundingClientRect().top;
+                    const triggerBottom = window.innerHeight * 0.8;
+
+                    if (itemTop < triggerBottom) {
+                        item.classList.add('visible');
+                    }
+                });
+            }
+
+            // Initial animation
+            animateOnScroll();
+
+            // Animate on scroll
+            window.addEventListener('scroll', animateOnScroll);
+        });
+    </script>
+
+</body>
+
+</html>
