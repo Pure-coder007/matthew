@@ -142,6 +142,35 @@
                 margin-top: -100px;
             }
         }
+        
+        <style>
+        /* Black + Gold Pulse Glow */
+        
+        @keyframes goldGlowPulse {
+            0% {
+                text-shadow: 0 0 5px #000, 0 0 10px #b8860b, 0 0 20px #000;
+            }
+            50% {
+                text-shadow: 0 0 15px #000, 0 0 30px #ffd700, 0 0 45px #000;
+            }
+            100% {
+                text-shadow: 0 0 5px #000, 0 0 10px #b8860b, 0 0 20px #000;
+            }
+        }
+        /* Gradient gold text with pulse animation */
+        
+        .hero h2,
+        .hero p span.typed,
+        .hero p span.typed-cursor {
+            font-weight: 800;
+            background: linear-gradient(90deg, #000 0%, #ffd700 50%, #000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: goldGlowPulse 2.5s ease-in-out infinite;
+            letter-spacing: 2px;
+        }
+    </style>
+
     </style>
 </head>
 
