@@ -29,71 +29,6 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
 
-    <!-- <style>
-        /* Logo styling */
-        
-        .logo img {
-            max-height: 150px;
-            /* Reasonable size for header */
-            width: auto;
-            transition: all 0.3s ease;
-        }
-        /* Make logo slightly larger on hover */
-        
-        .logo:hover img {
-            transform: scale(1.05);
-        }
-        /* Header styling */
-        
-        .header {
-            padding: 10px 0;
-            min-height: 70px;
-            display: flex;
-            align-items: center;
-        }
-        /* Ensure navbar items are properly aligned */
-        
-        .navmenu ul {
-            display: flex;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-        }
-        /* Responsive adjustments */
-        
-        @media (max-width: 768px) {
-            .logo img {
-                max-height: 40px;
-            }
-        }
-        
-        body,
-        p {
-            color: black;
-        }
-        
-        @keyframes darkGlow {
-            0% {
-                text-shadow: 0 0 5px #111, 0 0 10px #222, 0 0 20px #000;
-            }
-            50% {
-                text-shadow: 0 0 10px #222, 0 0 20px #111, 0 0 30px #000;
-            }
-            100% {
-                text-shadow: 0 0 5px #111, 0 0 10px #222, 0 0 20px #000;
-            }
-        }
-        
-        .hero h2 {
-            color: #e0e0e0;
-            animation: darkGlow 3s ease-in-out infinite;
-        }
-        
-        .design {
-            color: black
-        }
-    </style> -->
-
     <style>
         body,
         p {
@@ -102,7 +37,7 @@
         
         @keyframes darkGlow {
             0% {
-                text-shadow: 0 0 5px #111, 0 0 10px #222, 0 0 20px #000;
+                text-shadow: 0 0 5px #efeaea, 0 0 10px #222, 0 0 20px #000;
             }
             50% {
                 text-shadow: 0 0 10px #222, 0 0 20px #111, 0 0 30px #000;
@@ -115,6 +50,7 @@
         .hero h2 {
             color: #e0e0e0;
             animation: darkGlow 3s ease-in-out infinite;
+            font-weight: bolder;
         }
         
         .design {
@@ -123,50 +59,45 @@
         
         .logo img {
             max-height: 150px;
-            /* Reasonable size for header */
             width: auto;
             transition: all 0.3s ease;
         }
-        /* Make logo slightly larger on hover */
         
         .logo:hover img {
             transform: scale(1.05);
         }
+        /* CHANGED: Home image now covers more area */
         
         @media (max-width: 768px) {
             .logo img {
                 max-width: 100px;
                 margin-top: -10px;
-                /* height: auto; */
-            }
-            .home_img {
-                margin-top: -100px;
             }
         }
         /* Black + Gold Pulse Glow */
-        
-        @keyframes goldGlowPulse {
+        /* @keyframes goldGlowPulse {
             0% {
-                text-shadow: 0 0 5px #000, 0 0 10px #b8860b, 0 0 20px #000;
+                text-shadow: 0 0 5px #000, 0 0 10px #ecbd45, 0 0 20px #000;
             }
             50% {
-                text-shadow: 0 0 15px #000, 0 0 30px #ffd700, 0 0 45px #000;
+                text-shadow: 0 0 15px #000, 0 0 30px yellow, 0 0 45px #000;
             }
             100% {
-                text-shadow: 0 0 5px #000, 0 0 10px #b8860b, 0 0 20px #000;
-            }
-        }
+                text-shadow: 0 0 5px #000, 0 0 10px yellow, 0 0 20px #000;
+            } */
+        /* } */
         /* Gradient gold text with pulse animation */
         
         .hero h2,
         .hero p span.typed,
         .hero p span.typed-cursor {
             font-weight: 800;
-            background: linear-gradient(90deg, #000 0%, #ffd700 50%, #000 100%);
+            background: linear-gradient(90deg, #3d3d3d 0%, #ffd700 50%, #5f5e5e 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: goldGlowPulse 2.5s ease-in-out infinite;
             letter-spacing: 2px;
+            font-weight: bolder;
         }
         /* Signature font for name */
         
@@ -174,14 +105,13 @@
         .footer h3.sitename {
             font-family: 'Great Vibes', cursive;
             font-size: 3.5rem;
-            /* Adjust size as needed */
             font-weight: 400;
-            /* Lighter weight for cursive elegance */
-            background: linear-gradient(90deg, #000 0%, #ffd700 50%, #000 100%);
+            background: linear-gradient(90deg, #696969 0%, #ffd700 50%, #686767 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: goldGlowPulse 2.5s ease-in-out infinite;
             letter-spacing: 2px;
+            font-weight: bolder;
         }
         /* Responsive adjustments */
         
@@ -189,19 +119,48 @@
             .hero h2,
             .footer h3.sitename {
                 font-size: 1.5rem;
-                /* Smaller size for mobile */
+            }
+            .home_img {
+                width: 0%;
+                height: 0%;
             }
         }
+        /* NEW: Hero section adjustments for background image */
+        
+        .hero.section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        /* Optional: Add a dark overlay for better text readability */
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 0;
+        }
+        
+        .home_img {}
     </style>
-
-
 </head>
 
 <body class="index-page">
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
                 <img src="assets/img/new.png" alt="Audu Matthew Ogiede" class="logos" />
             </a>
 
@@ -220,95 +179,83 @@
     <main class="main">
         <!-- Hero Section -->
         <section id="hero" class="hero section dark-background">
-            <img src="assets/img/home_img.jpeg" alt="" data-aos="fade-in" class="home_img" />
+            <img src="assets/img/newone.jpeg" alt="" data-aos="fade-in" class="home_img" />
 
-            <div class=" container " data-aos="zoom-out " data-aos-delay="100 ">
-                <h2>AUDU MATTHEW OGIEDE</h2>
+            <div class="container" data-aos="zoom-out" data-aos-delay="100">
+                <h2 style="font-weight: bolder;">AUDU MATTHEW OGIEDE </h2>
                 <p>
                     I'm a
-                    <span class="typed " data-typed-items="Mentor, Philantropist, Builder, Realtor, Entrepreneur, Public Speaker "></span
-            ><span class="typed-cursor typed-cursor--blink "></span>
+                    <span class="typed" data-typed-items="Mentor, Philantropist, Builder, Realtor, Entrepreneur, Public Speaker"></span>
+                    <span class="typed-cursor typed-cursor--blink"></span>
                 </p>
-                <div class="social-links ">
-                    <a href="# "><i class="bi bi-twitter-x "></i></a>
-                    <a href="https://www.facebook.com/share/1HECPb6Hf5/?mibextid=wwXIfr "><i class="bi bi-facebook "></i
-            ></a>
-
-                    <a href="# "><i class="bi bi-instagram "></i></a>
-                    <a href="https://www.linkedin.com/in/auduojo-matthew-64a436168?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app "><i class="bi bi-linkedin "></i
-            ></a>
-                    <a href="# "><i class="bi bi-linkedin "></i></a>
+                <div class="social-links">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="https://www.facebook.com/share/1HECPb6Hf5/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/auduojo-matthew-64a436168?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="bi bi-linkedin"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
                 </div>
             </div>
         </section>
         <!-- /Hero Section -->
     </main>
 
-    <footer id="footer " class="footer dark-background ">
-        <div class="container ">
-            <h3 class="sitename ">AUDU MATTHEW OGIEDE</h3>
+    <footer id="footer" class="footer dark-background">
+        <div class="container">
+            <h3 class="sitename">AUDU MATTHEW OGIEDE</h3>
             <p>From Humble Beginnings to Real Estate Powerhouse</p>
-            <div class="social-links d-flex justify-content-center ">
-                <a href=" "><i class="bi bi-twitter-x "></i></a>
-                <a href="https://www.facebook.com/share/1HECPb6Hf5/?mibextid=wwXIfr "><i class="bi bi-facebook "></i
-          ></a>
-                <a href=" "><i class="bi bi-instagram "></i></a>
-                <a href=" "><i class="bi bi-skype "></i></a>
-                <a href="https://www.linkedin.com/in/auduojo-matthew-64a436168?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app "><i class="bi bi-linkedin "></i
-          ></a>
+            <div class="social-links d-flex justify-content-center">
+                <a href=""><i class="bi bi-twitter-x"></i></a>
+                <a href="https://www.facebook.com/share/1HECPb6Hf5/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-skype"></i></a>
+                <a href="https://www.linkedin.com/in/auduojo-matthew-64a436168?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="bi bi-linkedin"></i></a>
             </div>
-            <div class="container ">
-                <div class="copyright ">
-                    <span class="design ">Designed by
-              <a href="https://technest-gules.vercel.app/ " style="color: green "
-                >TechNest</a
-              >
-              Technologies</span
-            >
-          </div>
+            <div class="container">
+                <div class="copyright">
+                    <span class="design">Designed by
+                        <a href="https://technest-gules.vercel.app/" style="color: green">TechNest</a>
+                        Technologies</span>
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
 
     <!-- Scroll Top -->
-    <a
-      href="# "
-      id="scroll-top "
-      class="scroll-top d-flex align-items-center justify-content-center "
-      ><i class="bi bi-arrow-up-short "></i
-    ></a>
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Preloader -->
-    <div id="preloader "></div>
+    <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
-    <script src="assets/vendor/php-email-form/validate.js "></script>
-    <script src="assets/vendor/aos/aos.js "></script>
-    <script src="assets/vendor/typed.js/typed.umd.js "></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js "></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js "></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js "></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js "></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js "></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js "></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
     <!-- Main JS File -->
-    <script src="assets/js/main.js "></script>
+    <script src="assets/js/main.js"></script>
 
-    <audio id="jazz " autoplay loop style="display: none ">
-      <source src="assets/audio/kenny.mp3 " type="audio/mpeg " />
+    <audio id="jazz" autoplay loop style="display: none">
+        <source src="assets/audio/kenny.mp3" type="audio/mpeg" />
     </audio>
 
     <script>
-      const jazz = document.getElementById("jazz ");
+        const jazz = document.getElementById("jazz");
 
-      window.addEventListener("load ", () => {
-        jazz.volume = 0.3; // soft background level
-        jazz.play().catch(() => {
-          console.log("Autoplay blocked by browser 😅 ");
+        window.addEventListener("load", () => {
+            jazz.volume = 0.3; // soft background level
+            jazz.play().catch(() => {
+                console.log("Autoplay blocked by browser 😅");
+            });
         });
-      });
     </script>
-  </body>
+</body>
+
 </html>
