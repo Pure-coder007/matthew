@@ -55,7 +55,7 @@
         
         .about-content p {
             color: #6c757d;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .stats-item {
@@ -73,7 +73,7 @@
         }
         
         .stats-item i {
-            font-size: 2rem;
+            font-size: 1rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
@@ -100,7 +100,7 @@
             border-radius: 50%;
         }
         
-        .milestone-item h4 {
+        .milestone-item h2 {
             font-weight: 600;
             color: var(--dark-color);
         }
@@ -112,7 +112,7 @@
             border-radius: var(--border-radius);
             text-align: center;
             font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin: 2rem 0;
         }
         
@@ -245,7 +245,7 @@
             right: 15px;
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1rem;
             color: var(--dark-color);
             cursor: pointer;
         }
@@ -318,7 +318,7 @@
         .popup-content h3 {
             color: var(--dark-color);
             margin-bottom: 0.5rem;
-            font-size: 1.5rem;
+            font-size: 1rem;
         }
         
         .popup-content p {
@@ -632,6 +632,16 @@
             .timeline-line {
                 left: 30px;
             }
+            .logo img {
+                max-height: 120px;
+                margin-top: -30px;
+            }
+            .logos img {
+                max-height: 150px;
+                /* Reasonable size for header */
+                width: auto;
+                transition: all 0.3s ease;
+            }
             .timeline-item {
                 width: calc(100% - 60px);
                 margin-left: 60px !important;
@@ -672,6 +682,32 @@
             }
         }
         
+        body,
+        p {
+            color: black;
+        }
+        
+        @keyframes darkGlow {
+            0% {
+                text-shadow: 0 0 5px #111, 0 0 10px #222, 0 0 20px #000;
+            }
+            50% {
+                text-shadow: 0 0 10px #222, 0 0 20px #111, 0 0 30px #000;
+            }
+            100% {
+                text-shadow: 0 0 5px #111, 0 0 10px #222, 0 0 20px #000;
+            }
+        }
+        
+        .hero h2 {
+            color: #e0e0e0;
+            animation: darkGlow 3s ease-in-out infinite;
+        }
+        
+        .design {
+            color: black
+        }
+        
         .logo img {
             max-height: 150px;
             /* Reasonable size for header */
@@ -683,21 +719,13 @@
         .logo:hover img {
             transform: scale(1.05);
         }
-        /* Header styling */
         
-        .header {
-            padding: 10px 0;
-            min-height: 70px;
-            display: flex;
-            align-items: center;
-        }
-        /* Ensure navbar items are properly aligned */
-        
-        .navmenu ul {
-            display: flex;
-            align-items: center;
-            margin: 0;
-            padding: 0;
+        @media (max-width: 768px) {
+            .logo img {
+                max-width: 100px;
+                margin-top: -10px;
+                /* height: auto; */
+            }
         }
     </style>
 </head>
@@ -1022,7 +1050,7 @@
                                     <span style="color: black;">His leadership at PWAN Ultra Estates has created opportunities for many and transformed the real estate landscape.</span>
                                     <i class="bi bi-quote quote-icon-right"></i>
                                 </p>
-                                <img src="assets/img/man1.jpg" class="testimonial-img" alt="Team Member">
+                                <img src="assets/img/peer.jpeg" class="testimonial-img" alt="Team Member">
                                 <h3>Team Member</h3>
                                 <h4>PWAN Ultra Estates</h4>
                             </div>
@@ -1055,11 +1083,11 @@
             <p>From Humble Beginnings to Real Estate Powerhouse</p>
             <div class="social-links d-flex justify-content-center">
                 <a href=""><i class="bi bi-twitter-x"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1HECPb6Hf5/?mibextid=wwXIfr"><i class="bi bi-facebook"></i
+            ></a> <a href=""><i class="bi bi-instagram"></i></a>
                 <a href=""><i class="bi bi-skype"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
+                <a href="https://www.linkedin.com/in/auduojo-matthew-64a436168?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="bi bi-linkedin"></i
+            ></a> </div>
             <div class="container">
 
                 <div class="copyright">
@@ -1307,5 +1335,7 @@
     </script>
 
 </body>
+
+</html>
 
 </html>
